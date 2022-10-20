@@ -34,3 +34,5 @@ function invertiParola(parola){
     return parolaInversa;
 }
 
+
+
