@@ -92,29 +92,79 @@ function addCard(obj) {
     card.appendChild(cardText);
     cardText.appendChild(pNome);
     cardText.appendChild(pRole);
+    
+}
 
+function addCardNew(obj) {
+    obj.nome;
+    obj.role;
+    obj.image;
+    
+    const col = document.createElement('div');
+    col.className = 'col';
 
+    const card = document.createElement('div');
+    card.className = 'card shadow-sm';
 
+    const image = document.createElement('img');
+    image.className = 'bd-placeholder-img card-img-top';
+    image.src =  obj.image;
+    console.log(obj.image)
+
+    const cardText = document.createElement('div')
+    cardText.className = 'card-body text-center'
+
+    const pNome = document.createElement('p');
+    pNome.classList = 'card-text fs-3';
+    pNome.innerHTML = obj.nome;
+
+    const pRole = document.createElement('p');
+    pRole.classList = 'card-text';
+    pRole.innerHTML = obj.role;
+
+    container.appendChild(col);
+    col.appendChild(card);
+    card.appendChild(image);
+    card.appendChild(cardText);
+    cardText.appendChild(pNome);
+    cardText.appendChild(pRole);
     
 }
 
 
 
+const btn = document.querySelector('button');
+let nomeHtml = document.getElementById('nome');
+let roleHtml = document.getElementById('role');
+
+btn.addEventListener('click', function(){
+    const random = randomNumber(1,50);
+    
+    const newUtenti = {
+        nome: `${nomeHtml.value}`,
+        role: `${roleHtml.value}`,
+        image: `https://picsum.photos/400/429?random=${random}`
+    }
+    console.log(newUtenti);
+
+    team.push(newUtenti);
+    console.log(team);
+
+    
+    nomeHtml.value = '';
+    roleHtml.value = '';
+    
+    addCardNew(newUtenti);
+    
+
+    
+
+})
 
 
 
-// while (i < team.length) {
 
-//     card.innerHTML = `
-//         <img src="./img/wayne-barnett-founder-ceo.jpg" alt="" class="bd-placeholder-img card-img-top">
-//         <div class="card-body text-center">
-//             <p class="card-text fs-3">Wayne Barnett</p>
-//             <p class="card-text">Founder & CEO</p>
-//         </div>
-//         `;
-//     col.append(card);
 
-//     i++
-// }
-// containerCard.append(col)
+
+
 
